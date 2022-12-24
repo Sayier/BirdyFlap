@@ -7,6 +7,7 @@ public class Bird : MonoBehaviour
 
     [SerializeField] private Rigidbody2D thisRigidBody;
     [SerializeField] private float VelocityCoefficient = 6;
+    [SerializeField] private AudioManager audioManager;
     private GameManager gameManager;
 
     private static int topOfScreen = 10;
@@ -34,7 +35,9 @@ public class Bird : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && gameManager.isBirdAlive())
         {
             thisRigidBody.velocity = Vector2.up * VelocityCoefficient;
+            audioManager.Play("FlapSound");
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

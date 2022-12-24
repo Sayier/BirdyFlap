@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField] private AudioManager audioManager;
     private int playerScore;
     [SerializeField] private TextMeshProUGUI playerScoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
@@ -48,7 +49,10 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
-        if(playerScore > PlayerPrefs.GetInt("HighScore", 0))
+        if (!isBirdAlive()) return; //No need to die again
+
+        audioManager.Play("BonkSound");
+        if (playerScore > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", playerScore);
         }
