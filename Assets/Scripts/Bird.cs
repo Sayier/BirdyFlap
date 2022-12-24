@@ -24,9 +24,32 @@ public class Bird : MonoBehaviour
     {
         FlapWhenSpacePressed();
 
-        if(transform.position.y > topOfScreen || transform.position.y < bottomOfScreen)
+        SetBirdRotation();
+
+        CheckIfOffScreen();
+    }
+
+    private void CheckIfOffScreen()
+    {
+        if (transform.position.y > topOfScreen || transform.position.y < bottomOfScreen)
         {
             gameManager.gameOver();
+        }
+    }
+
+    private void SetBirdRotation()
+    {
+        Vector2 birdVelocity = thisRigidBody.velocity;
+        if (birdVelocity.y > 5f)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 45);
+        }
+        else
+        {
+            if (thisRigidBody.rotation >= -65f)
+            {
+                transform.Rotate(new Vector3(0, 0, -1) * 100f * Time.deltaTime);
+            }
         }
     }
 

@@ -832,6 +832,11 @@ MonoBehaviour:
     soundVolume: 1
     soundPitch: 1
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4d9b94ee41c58fc4ca6a334564d81f99, type: 3}
+    soundName: BonkSound
+    soundVolume: 1
+    soundPitch: 1
+    source: {fileID: 0}
 --- !u!1 &796047161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,6 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc65053d487162d49bf7305724d0469d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 710166302}
   playerScoreText: {fileID: 548453712}
   highScoreText: {fileID: 1845988095}
   gameOverScreen: {fileID: 796047161}
